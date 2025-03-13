@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='wordle_part1.css'>
+    </head>
+    <body>
+        <h1>Part 2</h1>
+        <p>Placeholder for <span class='wordle-name'>Wordle</span>, Part 2.</p>
+
+        <p>This template was passed the following standard parameters:<p>
+        <ul>
+            <li> <code>max_guesses</code>: {{ max_guesses }}</li>
+            <li> <code>answer</code>: {{ answer }}</li>
+            <li> <code>guesses</guesses>: 
+                <ul>
+                  {% for word in guesses %}
+                    <li>{{ word }} </li>
+                  {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>
