@@ -84,7 +84,6 @@ export default class WordleController {
         })
 
         const guess = this.model.currentGuess.join('')
-        this.model.addGuess(guess)
 
         if (guess === this.model.answer) {
             alert("Correct!")
@@ -95,6 +94,7 @@ export default class WordleController {
             alert(`Game Over! The answer was ${this.model.answer}`)
         }
         
+    
         this.model.resetCurrentGuess()
-        }
     }
+}

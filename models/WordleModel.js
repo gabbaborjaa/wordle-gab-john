@@ -13,7 +13,11 @@ export default class WordleModel {
     }
 
     isGameOver() {
-        return this.guesses.includes(this.answer) || this.guesses.length >= this.maxAttempts;
+        let guess = '';
+        for (const val of this.currentGuess) {
+            guess += val;
+        }
+        return guess === this.answer || this.attemptsRemaining === 0;
     }
 
     validateGuess() {
@@ -42,8 +46,9 @@ export default class WordleModel {
         return feedback
     }
 
-    resetCurrentGues() {
+    resetCurrentGuess() {
         this.currentGuess = []
         this.nextLetter = 0
+        this.attemptsRemaining -= 1;
     }
 }
