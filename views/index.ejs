@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle</title>
-    <link rel="stylesheet" href="./Express/public/wordle_part2.css">
+    <link rel="stylesheet" href="/wordle_part3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
@@ -50,6 +50,14 @@
             </div>
         </div>
     </div>
-    <script src="./script.js" type="module"></script>
+    <script type="module">
+        import WordleModel from "/models/WordleModel.js";
+        import WordleController from "/controllers/WordleController.js";
+        const answer = '<%= answer %>' || "HELLO";
+        const maxAttempts = '<%= maxAttempts %>' || 6;
+
+        const wordleModel = new WordleModel(answer, maxAttempts);
+        const wordleController = new WordleController(wordleModel);
+    </script>
 </body>
 </html>

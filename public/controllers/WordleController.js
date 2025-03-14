@@ -2,6 +2,8 @@ export default class WordleController {
 
     constructor(model) {
         this.model = model;
+        this.initBoard();
+        this.handleKeyPress();
     }
 
     initBoard() {

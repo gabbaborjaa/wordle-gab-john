@@ -1,0 +1,60 @@
+.wordle-name {
+    font-variant: small-caps;
+    color: blue;
+}
+p, h1 {
+    text-align: center;
+}
+
+/* Keyboard Styling */
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.key {
+    padding: 10px;
+    margin: 1px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+#wordle-grid .row{
+    justify-content: center;
+    display: flex;
+    
+}
+/* Styles the box of each letter */
+.cell {
+    margin: 2px;
+    padding: 15px;
+    padding-top: 10px;
+    border-width: 1px;
+    border-style: solid;
+    width: 50px;
+    height: 50px;
+    font-weight: 900px;
+    text-align: center;  
+    font-size: 1.5em;
+    text-transform: uppercase;
+    
+}
+
+/* Colors for Keyboard Letters */
+.incorrect{
+    background-color: gray;
+    color: white;
+}
+.almost {
+    background-color: yellow;
+}
+
+.correct {
+    background-color: green;
+    color: white
+}
