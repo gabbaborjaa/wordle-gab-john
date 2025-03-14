@@ -24,10 +24,11 @@ export default class WordleController {
         document.addEventListener("keyup", (e) => {
 
             if (this.model.attemptsRemaining === 0) {
+                alert('Game Over!')
                 return
             }
         
-            let pressedKey = String(e.key)
+            const pressedKey = String(e.key)
             if (pressedKey === "Backspace" && this.model.nextLetter !== 0) {
                 this.deleteLetter()
                 return
@@ -38,7 +39,7 @@ export default class WordleController {
                 return
             }
         
-            let found = pressedKey.match(/[a-z]/gi)
+            const found = pressedKey.match(/[a-z]/gi)
             if (!found || found.length > 1) {
                 return
             } else {
@@ -67,4 +68,33 @@ export default class WordleController {
         this.model.currentGuess.pop()
         this.model.nextLetter -= 1
     }
-}
+
+    checkGuess() {
+        if (!this.model.validateGuess()) {
+            alert('Not enough letters!')
+            return
+        }
+
+        const feedback = this.model.getFeedback()
+        const row = document.getElementsByClassName('row')[this.model.maxAttempts - this.model.attemptsRemaining]
+
+        feedback.forEach((status, index) => {
+            const box = row.children[index]
+            box.classList.add(status)
+        })
+
+        const guess = this.model.currentGuess.join('')
+        this.model.addGuess(guess)
+
+        if (guess === this.model.answer) {
+            alert("Correct!")
+            return
+        }
+
+        if (this.model.isGameOver()) {
+            alert(`Game Over! The answer was ${this.model.answer}`)
+        }
+        
+        this.model.resetCurrentGuess()
+        }
+    }
